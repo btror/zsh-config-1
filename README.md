@@ -2,6 +2,8 @@
 
 <details>
   <summary>Windows Pre-Config</summary>
+
+  <br>
   
   1. install WSL (for running linux distros on windows)
     - `wsl --install`
@@ -14,6 +16,9 @@
   6. make zsh default shell
       - `chsh -s /usr/bin/zsh`
 </details>
+
+![windows_terminal](https://github.com/user-attachments/assets/8c5aa12f-d38d-4940-ad40-035afc9bb5d0)
+
 
 ### Z Shell Run Commands Configuration
 1. install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
@@ -48,4 +53,12 @@ emoji_groups[favorites2]="
 5. copy `.zshrc` file content into existing `.zshrc` file
 6. configure file paths in .zshrc file
     - there is a function, `select_start_path`, that prompts users to choose a start path as a desired WSL profile or Windows user, delete this if you don't want to use it
-7. if using powerlevel10k theme do not set `ZSH_THEME`, just `source ~/powerlevel10k/powerlevel10k.zsh-theme`
+7. (optional) if using powerlevel10k theme do not set `ZSH_THEME`, just `source ~/powerlevel10k/powerlevel10k.zsh-theme`
+8. (optional) set vscode integrated terminal to Ubuntu 24.04 LTS or whatever shell you're using
+<details>
+  <summary>VSCode Example</summary>
+  
+  <br>
+  
+  ![vscode_integrated_terminal](https://github.com/user-attachments/assets/cb34d58f-6a3a-4b81-9527-da382f89c443)
+</details>

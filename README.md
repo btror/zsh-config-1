@@ -50,6 +50,9 @@ emoji_groups[favorites2]="
     - go through the configuration wizard (<i>should appear on first run in terminal</i>)
         - I only use the instant prompt, personally, but powerlevel10k offers many other features (<i>if you want to</i>)
         - note: if you source a powerlevel10k theme in `.zshrc` you might need to use a nerd font to prevent UI glitches (<i>might not have to honestly</i>)
+5. install [fzf](https://github.com/junegunn/fzf)
+    - <b><i>NOTE</i></b>: do not add fzf to the plugins list in `.zshrc`, just install fzf on your machine
+    - just go through the wizard and select no for everything, the `.zshrc` file included already has all the settings
 5. copy `.zshrc` file content into existing `.zshrc` file
 6. configure file paths in .zshrc file
     - there is a function, `select_start_path`, that prompts users to choose a start path as a desired WSL profile or Windows user, delete this if you don't want to use it

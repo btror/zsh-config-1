@@ -31,17 +31,24 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # ----------------START CUSTOM COMMANDS---------------
 
+wsl_profile_name="<ENTER WSL UBUNTU PROFILE NAME>"
+win_user_name="<ENTER WINDOWS USER NAME>"
+
+wsl_path="/home/$wsl_profile_name"
+win_path="/mnt/c/users/$win_user_name"
+
 # Function to prompt for start path selection.
 select_start_path() {
-  vared -cp "Enter (1) WSL Ubuntu profile (/home/<profile name>) or (2) Windows user (Users/<user name>): " dir_choice
+  vared -cp "Enter (1) WSL Ubuntu profile (/home/$wsl_profile_name) or (2) Windows user (Users/$win_user_name): " dir_choice
 
   if [[ "$dir_choice" == "1" ]]; then
+      cd $wsl_path
       pwd
   elif [[ "$dir_choice" == "2" ]]; then
-      cd ../../mnt/c/users/<user name>
+      cd $win_path
       pwd
   else
-      echo "Invalid choice. Staying in /home/<profile name> by default."
+      echo "Invalid choice. Staying in /home/$wsl_profile_name by default."
   fi
 }
 

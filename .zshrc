@@ -6,9 +6,20 @@ fi
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Load Powerlevel10k theme.
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-# ZSH_THEME="robbyrussell" # NOTE: sourcing powerlevel10k sets the theme I think...
+# FZF configuration.
+export FZF_BASE="$HOME/.fzf"
+export DISABLE_FZF_AUTO_COMPLETION="false"
+export DISABLE_FZF_KEY_BINDINGS="true"
+export FZF_DEFAULT_OPTS="
+  --height ~75% --info inline-right:'results: ' --border bold \
+  --border-label='Change Directory' --prompt 'filter: ' \
+  --preview 'file {}' --preview-window up,1,border-horizontal \
+  --color 'fg:#bbccdd,fg+:#ddeeff,label:italic:#778899,border:#8a8550,preview-fg:#33d128,preview-border:#bd4db5,pointer:#33d128,separator:#bd4db5'
+"
+
+# Load theme.
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
+ZSH_THEME="jonathan-with-emojis" # NOTE: comment this line out if you source the powerlevel10k theme
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -22,6 +33,11 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # Plugins setup.
 plugins=(
   git
+  emoji
+  timer
+  vscode
+  web-search
+  zsh-interactive-cd
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -29,15 +45,18 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
+# fzf configuration.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # ----------------START CUSTOM COMMANDS---------------
 
-wsl_profile_name="<ENTER WSL UBUNTU PROFILE NAME>"
-win_user_name="<ENTER WINDOWS USER NAME>"
+wsl_profile_name="<Enter Profile Name>"
+win_user_name="<Enter Windows User Name>"
 
 wsl_path="/home/$wsl_profile_name"
 win_path="/mnt/c/users/$win_user_name"
 
-# Function to prompt for start path selection.
+# Function to prompt for start path selection (WINDOWS ONLY)
 select_start_path() {
   vared -cp "Enter (1) WSL Ubuntu profile (/home/$wsl_profile_name) or (2) Windows user (Users/$win_user_name): " dir_choice
 
